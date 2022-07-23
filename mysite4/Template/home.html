@@ -1,0 +1,46 @@
+<!--
+<div>
+    <h1>Home</h1>
+    <br>
+    <h3>Users:</h3>
+    {% for user in users %}
+    <p>Username: {{user.username}} | Email: {{user.email}}</p>
+    {%endfor%}
+</div>
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+h2{
+    color: blue;
+}
+h3{
+    color: green;
+}
+button{
+  position: absolute;
+  left: 980px;
+  top: 10px;
+}
+
+</style>
+
+{% if user.is_authenticated %}
+<h2>Welcome, <a href="{% url 'account' %}" >{{user.username}}</a></h2>
+<h3>2nd Home Page</h2>
+{% else %}
+<h2>Home Page</h2><br><br>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href="logout"><button type="submit" class="btn btn-primary">Logout</button></a>
+{% else %}
+<a href="login"><button type="submit" class="btn btn-primary">Login/Sign Up</button></a>
+{% endif %}
